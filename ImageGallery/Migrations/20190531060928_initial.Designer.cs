@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ImageGallery.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190508055556_initial")]
+    [Migration("20190531060928_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
