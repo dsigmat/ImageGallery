@@ -53,6 +53,7 @@ namespace ImageGallery.Controllers
         {
             // действия Create обрабатывает GET-запрос и выдает представление, передавая в него объект SelectList
             //ViewData представляет словарь из пар ключ-значение
+            //Используется для вывода категории в форме
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
             return View();
         }
