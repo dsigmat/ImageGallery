@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ImageGallery.Models.ImageDetail>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List</h1>
+
+<form  asp-controller="Gallery" asp-action="Index" method="post">
+    <div class="m-2 mb-3 mx-auto form-row">
+        <div class="">
+            <p>Title: </p>
+        </div>
+        <div class="col-md-3">
+            <input class="form-control" type="text" name="SearchString">
+            
+        </div>
+        <div class="col-md-3">
+            <input class="btn btn-primary" type="submit" value="Filter" />
+        </div>
+        </div>
+
+</form>
+
+<div class="container">
+    <div class="row">
+        
+
+        @foreach (var image in Model)
+        {
+            <div class="m-2 mb-3 mx-auto" style="width: 18rem;">
+                <a asp-action="Details" asp-route-id="@image.Id">
+                    <img src="@image.PathImage" class="card-img-top" alt="@image.ImageName" asp-append-version="true">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">@image.ImageName</h5><hr />
+                    <p class="card-text news-content">@image.ImageDescription</p>
+                    <small class="text-muted">Category: @image.Category.Name</small><br />
+                    <small class="text-muted">Size: @image.Size kb</small><br />
+                    <small class="text-muted">Release Date: @Html.DisplayFor(modelItem => image.ReleaseDate)</small><br /><hr />
+                    @*<a asp-action="Edit" asp-route-id="@image.Id">Edit</a> |*@
+                    <a asp-action="Details" asp-route-id="@image.Id">Details</a>
+                    @*<a asp-action="Delete" asp-route-id="@image.Id">Delete</a>*@
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

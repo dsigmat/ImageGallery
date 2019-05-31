@@ -1,0 +1,31 @@
+﻿@model ImageGallery.Models.ImageDetail
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.ImageName</h1>
+
+<div>
+    <br />
+    <div class="mb-3" style="box-shadow: 0 10px 18px rgba(0,0,0,0.2), 0 5px 5px rgba(0,0,0,0.2);">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="@Model.PathImage" asp-append-version="true" class="card-img" alt="...">
+            </div>
+        </div>
+    </div>
+    <div>
+        <br />
+        <p class="card-text">@Model.ImageDescription</p>
+        <small class="text-muted">Category: @Model.Category.Name</small><br />
+        <small class="text-muted">Size: @Model.Size kb</small><br />
+        <small class="text-muted">Release Date: @Html.DisplayFor(modelItem => Model.ReleaseDate)</small>
+    </div>
+    
+    <div>
+        @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>
