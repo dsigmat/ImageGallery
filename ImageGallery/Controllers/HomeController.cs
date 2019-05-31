@@ -8,6 +8,7 @@ using ImageGallery.Models;
 
 namespace ImageGallery.Controllers
 {
+    //comment
     public class HomeController : Controller
     {
         public IActionResult Index()
